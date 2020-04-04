@@ -3,6 +3,8 @@
 # What the app will do.
   Provide online services to users. The first stage of the website is provided architectural services to users
 
+# Stage One: Providing 2D and 3D design and drawing services for interior and exterior design for users
+
         User able to create account
         User able to make requests for drawing or suggestion 
         User able to upload files to website
