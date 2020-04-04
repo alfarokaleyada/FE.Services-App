@@ -10,15 +10,15 @@
         User able to see the job we did before 
  
 # What technologies they expect their app to implement.
-        Backend
+ # Backend
          # Languages & Frameworks
                 JavaScript, Node.js 
 
          # Database
                 MongoDB
                 AWS
-                Front End
-                Languages 
+ # Front End
+        # Languages 
                 HTML
                 CSS3
                 JavaScript
