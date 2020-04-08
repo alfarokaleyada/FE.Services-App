@@ -35,9 +35,10 @@
 
 # Who will be responsible for each part of deliverable #1.
                 Farok Eyada
+                
+                
 
+https://balsamiq.cloud/sjjli9z/pba5aub/r2278?f=N4IgUiBcCMA0IDkpxAYWfAMhkAhHAsjgFo4DSUA2gLoC%2BQA%3D
 
-
-
-
+https://docs.google.com/document/d/1JNJ4vfPxX6CYfTNSyZLml54aS8_fFO4EdKvOY5EFesQ/edit
 
