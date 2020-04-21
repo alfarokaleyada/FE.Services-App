@@ -48,5 +48,14 @@ UserSchema.methods.isPassMatch = function (password, hashed , callback) {
 
 };
 
+// remove password from retun info to more scre
+UserSchema.methods.toJSON = function () {
+    const UserObject = this.toObject();  // object of user
+    delete UserObject.password;
+    return UserObject;
+};
+
+
+
 const User = mongoose.model('User', UserSchema); // User as name
 module.exports = User;
