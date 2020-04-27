@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === "production") {
   databaseToUse = process.env.MOMGO_DB_URL;
 }
 
-const MONGODB_URI = process.env.MONGODB_URI || process.env.MOMGO_DB_URL;
+const MONGODB_URI = process.env.MONGODB_URI || databaseToUse;
 
 mongoose.Promise = global.Promise;
 
@@ -62,7 +62,6 @@ mongoose.connection.on('error', (err) => {
 // ----------- DB Middlewares --------- //
 
 app.use(routes);
-
 
 
 app.use(cors())

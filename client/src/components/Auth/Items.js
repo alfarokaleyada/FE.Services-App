@@ -1,7 +1,7 @@
-import React from 'react';
-import {getJwt} from './Helpers'
+import React from './node_modules/react';
+import {getJwt} from './helpers'
 
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle, Button } from './node_modules/reactstrap';
 import "./Items.css";
 
 const Items = (props) => {

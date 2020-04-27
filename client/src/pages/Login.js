@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import { Container, Row, Col } from 'reactstrap';
-import {getJwt} from '../components/Auth/Helpers'
+import {getJwt} from '../components/auth/helpers'
 import axios from 'axios';
 import "./Login.css";
 
