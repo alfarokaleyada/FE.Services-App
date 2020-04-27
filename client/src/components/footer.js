@@ -16,7 +16,7 @@ import {
   NavbarText
 } from 'reactstrap';
 
-import "./NavBar2.css";
+import "./navBar2.css";
 
 
 

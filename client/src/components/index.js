@@ -1,6 +1,6 @@
-export * from './NavBar';
+export * from './navBar';
 export * from './footer';
-export * from './Homen';
+export * from './homen';
 
 
 

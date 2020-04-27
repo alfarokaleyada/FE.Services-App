@@ -1,8 +1,8 @@
-import React from './node_modules/react';
+import React from 'react';
 import {getJwt} from './helpers'
 
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle, Button } from './node_modules/reactstrap';
-import "./Items.css";
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import "./items.css";
 
 const Items = (props) => {
 

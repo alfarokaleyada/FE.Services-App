@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, CardGroup ,CardDeck, Card} from 'react-bootstrap';
 
 
-import "./About.css";
+import "./about.css";
 
 
 class About extends Component {

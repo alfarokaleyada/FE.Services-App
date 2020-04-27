@@ -7,10 +7,9 @@ const logger = require('morgan');
 const bodyParser = require('body-Parser');
 const passport = require('passport')
 const cors = require ('cors')
-const routes = require("./routes");
-
 const cacheControl = require('cache-control');
 const v1 = require('./routes/v1') // call routes v1 
+// const routes = require("./routes");
 
 
 // Sets up the Express App
@@ -35,8 +34,9 @@ if (process.env.NODE_ENV === "production") {
   databaseToUse =
     "mongodb:/farokeyada:test123@ds163757.mlab.com:33167/heroku_5rsglhq7";
 } else {
-  databaseToUse = process.env.MOMGO_DB_URL;
+  databaseToUse = "mongodb://localhost/reactBoilerplate";
 }
+
 
 const MONGODB_URI = process.env.MONGODB_URI || databaseToUse;
 
@@ -55,15 +55,9 @@ mongoose.connection.on('connected', () =>{
 mongoose.connection.on('error', (err) => {
     console.error("Failed to conect to the database: ${err}");
     });
-                 
-
-
+                  
 
 // ----------- DB Middlewares --------- //
-
-app.use(routes);
-
-
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -88,6 +82,7 @@ app.use(passport.session());
 
 // app.use(cacheControl());
 
+// app.use(routes);
 
 
 app.use('/public', express.static('public'));

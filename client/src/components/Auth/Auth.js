@@ -1,13 +1,13 @@
-import React, { Component } from './node_modules/react';
-import axios from './node_modules/axios';
+import React, { Component } from 'react';
+import axios from 'axios';
 import {getJwt} from './helpers'
-import { withRouter , Redirect } from './node_modules/react-router-dom'
-import Items from './Items';
-import "./Auth.css";
+import { withRouter , Redirect } from 'react-router-dom'
+import Items from './items';
+import "./auth.css";
 
-import { history } from './node_modules/history';
+import { history } from 'history';
 
-import { Button, CardGroup ,CardDeck, Card} from './node_modules/react-bootstrap';
+import { Button, CardGroup ,CardDeck, Card} from 'react-bootstrap';
 
 
 class Auth extends Component {
