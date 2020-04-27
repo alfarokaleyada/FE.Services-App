@@ -7,6 +7,8 @@ const logger = require('morgan');
 const bodyParser = require('body-Parser');
 const passport = require('passport')
 const cors = require ('cors')
+const routes = require("./routes");
+
 const cacheControl = require('cache-control');
 const v1 = require('./routes/v1') // call routes v1 
 
@@ -36,6 +38,11 @@ if (process.env.NODE_ENV === "production") {
   databaseToUse = "mongodb://localhost/reactBoilerplate";
 }
 
+const MONGODB_URI = process.env.MONGODB_URI || databaseToUse;
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect(MONGODB_URI);
 
 mongoose.connect(process.env.MOMGO_DB_URL,{
     useNewUrlParser: true,
@@ -48,9 +55,16 @@ mongoose.connection.on('connected', () =>{
 mongoose.connection.on('error', (err) => {
     console.error("Failed to conect to the database: ${err}");
     });
-                  
+                 
+
+
 
 // ----------- DB Middlewares --------- //
+
+app.use(routes);
+
+
+
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
