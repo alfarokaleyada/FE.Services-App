@@ -1,0 +1,227 @@
+/* * {
+    margin : 0;
+    padding : 0;
+    border : 0;
+  } */
+  
+  /* body {
+    font-family : 'Open Sans', sans-serif;
+    color : white;
+    font-size : 16px;
+  }
+   */
+  
+  .super1-container {
+    /* background :linear-gradient(rgba(80,227,194,.3),rgba(80,227,194,.3)),    url(https://i.ibb.co/N1bkG25/IMG-3122.jpg) to no-repeat; */
+    /* background-image:url(https://i.ibb.co/N1bkG25/IMG-3122.jpg) ; */
+    /* background-image:url(https://i.ibb.co/bJYP9HK/unnamedw.jpg) ; */
+    /* background-image:url(https://i.ibb.co/7CcD8Mn/unnamed-1.jpg) ; */
+    /* background-image:url(https://i.ibb.co/YLmFC1F/farok3.jpg) ; */
+    background-image:url(https://i.ibb.co/d5YpzYT/farok3222.jpg) ;
+
+
+
+    
+    background-position: center;
+    background-position: 70% 5%;
+
+    background-repeat: no-repeat;
+    background-size:  56%;
+    background-blend-mode : multiply, normal;
+    border : 1px solid black;
+    height : 800px;
+     overflow : hidden;
+  }
+  
+  .left-content-container1 {
+    height : 100%;
+    width : 568px;
+    background-color : #0b0b0b;
+    border : 1px solid #0b0b0b;
+  }
+  
+  .quote1 {
+    margin : 60px 80px 60px 80px;
+    font-size : 28px;
+    font-weight : 300;
+    line-height : 40px;
+  }
+  
+  .quote1>p>span {
+    font-weight : 600;
+    color : #50E3C2;
+  }
+  
+  .titleHome {
+    margin : 60px 80px auto 80px;
+  }
+  
+  .titleHome p {
+    text-transform : uppercase;
+    display : inline-block;
+    font-size : 14px;
+    font-weight : 600;
+    letter-spacing : 3px;
+    opacity : .5;
+    margin-right : 15px;
+  }
+  
+  .titleHome h1 {
+    font-family : 'Open Sans Condensed';
+    font-size : 40px;
+  }
+  
+  .content1 {
+    background-color : white;
+    color : #0b0b0b;
+    margin-top : 30px;
+    margin-left : 80px;
+    width : 568px;
+    
+    box-shadow : 0px 0px 30px 0px rgba(0,0,0,0.2);
+  }
+  
+  .content1 p {
+    padding : 30px 30px 20px 30px;
+  }
+  
+  .content1 p:last-child {
+    padding-top: 0px;
+    padding-bottom : 40px;
+  }
+  
+  .content1>p>span {
+    font-weight : 700;
+  }
+  
+  .learn-more1{
+    display : inline-block;
+    border : 2px solid white;
+    margin-left : 80px;
+    margin-top : 30px;
+    
+    text-transform : uppercase;
+    font-size : 12px;
+    font-weight : 600;
+    letter-spacing : 2px;
+    padding : 15px 30px;
+  }
+  
+  .learn-more1e a {
+    color : white;
+    text-decoration : none;
+  }
+  
+  .learn-more1 a:visited, .learn-more a:active {
+    color : white;
+  }
+  
+  .learn-more1:hover {
+    background-color :  #50E3C2;
+  }
+
+
+
+
+
+
+  @import url(https://fonts.googleapis.com/css?family=Open+sans);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+.snip15151 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  position: relative;
+  margin: 10px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #000000;
+  text-align: center;
+  line-height: 1.4em;
+  font-size: 14px;
+  box-shadow: none !important;
+}
+
+.snip15151 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.snip15151 .profile-image {
+  display: inline-block;
+  width: 80%;
+  z-index: 1;
+  position: relative;
+  padding: 10px;
+  border: 2px solid #50E3C2;
+}
+
+.snip15151 .profile-image img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.snip15151 figcaption {
+  width: 100%;
+  background-color: #F2F2F2;
+  color: #555;
+  padding: 125px 25px 25px;
+  margin-top: -100px;
+  display: inline-block;
+}
+
+.snip15151 h3,
+.snip15151 h4,
+.snip15151 p {
+  margin: 0 0 5px;
+}
+
+.snip15151 h3 {
+  font-weight: 600;
+  font-size: 1.3em;
+  font-family: 'Playfair Display', Arial, sans-serif;
+}
+
+.snip15151 h4 {
+  color: #8c8c8c;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.snip15151 p {
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.snip15151 .icons {
+  text-align: center;
+  width: 100%;
+}
+
+.snip15151 i {
+  padding: 10px 2px;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: normal;
+  color:#50E3C2;
+  opacity: 0.75;
+}
+
+.snip15151 i:hover {
+  opacity: 1;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.back {
+  background-color: black;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #50E3C2;
+  border-color: #50E3C2;
+}
+  
+  

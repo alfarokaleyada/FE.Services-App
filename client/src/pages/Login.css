@@ -1,0 +1,143 @@
+/* * {
+    margin : 0;
+    padding : 0;
+    border : 0;
+  }
+   */
+  /* body {
+    font-family : 'Open Sans', sans-serif;
+    color : white;
+    font-size : 16px;
+  } */
+  
+  
+  .super-containerLog {
+    /* background :linear-gradient(rgba(80,227,194,.3),rgba(80,227,194,.3)),    url(https://i.ibb.co/N1bkG25/IMG-3122.jpg) to no-repeat; */
+        background-image:url(https://i.ibb.co/5W86NQ2/eaVEyj.jpg) ;
+
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2000px 1200px;
+    background-blend-mode : multiply, normal;
+    border : 1px solid black;
+    height : 800px;
+     overflow : hidden;
+     
+  }
+  
+  .left-content-containerLog {
+    
+    height : 100%;
+    width : 568px;
+    background-color : #0b0b0b;
+    border : 1px solid #0b0b0b;
+    
+  }
+  
+  .quote {
+    
+    margin : 60px 80px 60px 80px;
+    font-size : 28px;
+    font-weight : 300;
+    line-height : 40px;
+    
+  }
+  
+  .quote>p>span {
+    font-weight : 600;
+    color : #50E3C2;
+  }
+  
+  .title {
+    margin : 60px 80px auto 80px;
+  }
+  
+  .title p {
+    text-transform : uppercase;
+    display : inline-block;
+    font-size : 14px;
+    font-weight : 600;
+    letter-spacing : 3px;
+    opacity : .5;
+    margin-right : 15px;
+  }
+  
+  .title h1 {
+    font-family : 'Open Sans Condensed';
+    font-size : 40px;
+  }
+  
+  .content {
+    background-color : white;
+    color : #0b0b0b;
+    margin-top : 30px;
+    margin-left : 80px;
+    width : 568px;
+    
+    box-shadow : 0px 0px 30px 0px rgba(0,0,0,0.2);
+  }
+  
+  .content p {
+    padding : 30px 30px 20px 30px;
+  }
+  
+  .content p:last-child {
+    padding-top: 0px;
+    padding-bottom : 40px;
+  }
+  
+  .content>p>span {
+    font-weight : 700;
+  }
+  
+  /* .learn-more {
+    display : inline-block;
+    border : 2px solid white;
+    margin-left : 80px;
+    margin-top : 30px;
+    
+    text-transform : uppercase;
+    font-size : 12px;
+    font-weight : 600;
+    letter-spacing : 2px;
+    padding : 15px 30px;
+  }
+  
+  .learn-more a {
+    color : white;
+    text-decoration : none;
+  }
+  
+  .learn-more a:visited, .learn-more a:active {
+    color : white;
+  }
+  
+  .learn-more:hover {
+    background-color :  #50E3C2;
+  } */
+/*   
+  .form {
+    margin: 20px;
+  } */
+  
+  .form input {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 50%;
+  }
+
+
+  button {
+    color: rgb(0, 0, 0);
+    font-width: bold;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 50px;
+    width: 40%;
+
+}

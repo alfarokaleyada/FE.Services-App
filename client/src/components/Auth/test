@@ -1,0 +1,167 @@
+ return (
+            <div>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://ehelse.herokuapp.com/static/lib/css/dc.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://ehelse.herokuapp.com/static/assets/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://ehelse.herokuapp.com/static/lib/css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="http://ehelse.herokuapp.com/static/assets/css/styles.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://ehelse.herokuapp.com/static/css/custom.css" />
+        <link rel="stylesheet" href="http://ehelse.herokuapp.com/static/lib/css/bootstrap-tour-standalone.min.css" />
+        <div className="container-fluid">
+          <div className="container">
+            <h2 className="text-center 1">Dashbord</h2>
+            <input type="button" className="btn btn btn-info" onclick="javascript:dc.filterAll(); dc.renderAll();" defaultValue="reset" />
+            <input type="button" className="btn btn btn-info" onclick="startTour()" defaultValue="Trykk her for hjelp" />
+            <p className="text-center" />
+            {/* Start: Mega Menu Dropdown */}
+            <div className="dropdown border rounded-circle d-xl-flex align-items-xl-start visible megamenu ">
+              <button className="btn-lg btn-outline-primary active  btn-block dropdown-toggle text-capitalize" data-toggle="dropdown" id="#tour_5" aria-expanded="false" type="button">Filtrerings valg&nbsp;</button>
+              <div className="dropdown-menu animate slideIn" role="menu" style={{backgroundColor: '#6d6d6d', color: 'rgb(255,255,255)'}} id="tour_6">
+                <div className="container" style={{paddingTop: '15px', paddingBottom: '35px'}}>
+                  <div className="row" style={{color: 'rgb(255,255,255)'}}>
+                    <div className="col-6 col-md-4 col-xl-2">
+                      <h6 className="font-weight-bold text-uppercase">Alkohol</h6>
+                      <hr style={{backgroundColor: '#ffffff'}} />
+                      <ul id="menu">
+                        <li className="nav-item"><a href onclick="setHeader('Drikker du alkohol?');return false;" id="btnAlko1" className="nav-link text-small pb-0">Drikker du alkohol?</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('Hvor ofte drikker du alkohol?');return false;" id="btnAlko2">Hvor ofte drikker du alkohol?</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('Antall enheter alkohol');return false;" id="btnAlko3">Antall enheter når du drikker?</a></li>
+                      </ul>
+                    </div>
+                    <div className="col-6 col-md-4 col-xl-2">
+                      <h6 className="font-weight-bold text-uppercase">Tobakk</h6>
+                      <hr style={{backgroundColor: '#ffffff'}} />
+                      <ul id="menu">
+                        <li className="nav-item"><a href onclick="setHeader('Hvor ofte damper du e-sigarett?');return false;" id="btnTobakk1" className="nav-link text-small pb-0">Hvor ofte damper du e-sig?</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('hvor ofte røyker du?');return false;" id="btnTobakk2">Hvor ofte røyker du?</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('hvor ofte snuser du?');return false;" id="btnTobakk3">Hvor ofte snuser du?</a></li>
+                      </ul>
+                    </div>
+                    <div className="col-6 col-md-4 col-xl-2">
+                      <h6 className="font-weight-bold text-uppercase">Kosthold</h6>
+                      <hr style={{backgroundColor: '#ffffff'}} />
+                      <ul id="menu">
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('Fiskemat & fisk til middag per uke');return false;" id="btnKosthold1">Fiskemat &amp; fisk til middag per uke</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('Rødt kjøtt til middag per uke');return false;" id="btnKosthold2">Rødt kjøtt til middag per uke</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('Bearbeidet kjøtt til middag per uke');return false;" id="btnKosthold3">Bearbeidet kjøtt til middag per uke</a></li>
+                        <li className="nav-item"><a href="#" onclick="setHeader('hvor mange porsjoner salat og grønnsaker?');return false;" id="btnKosthold4" className="nav-link text-small pb-0">Hvor mange porsjoner salat og grønnsaker?</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('hvor mange porsjoner frukt og bær iløpet av en dag?');return false;" id="btnKosthold5">Hvor mange porsjoner frukt og bar iløpet av en dag</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('Hvor mange sukkerdrikk drikker du vanligvis per dag?');return false;" id="btnKosthold6">Hvor mange sukkerdrikk drikker du vanligvis per dag?</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('Hvor ofte salter du maten ekstra?');return false;" id="btnKosthold7">Hvor ofte salter du maten ekstra?</a></li>
+                      </ul>
+                    </div>
+                    <div className="col-6 col-md-4 col-xl-2">
+                      <h6 className="font-weight-bold text-uppercase">Aktivitet</h6>
+                      <hr style={{backgroundColor: '#ffffff'}} />
+                      <ul id="menu">
+                        <li className="nav-item"><a href="#" onclick="setHeader('Antall timer sittende per dag de siste 7 dagene?');return false;" id="btnAktivitet1" className="nav-link text-small pb-0">Antall timer sittende i en vanlig hverdag</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('Dager med 30 minutts gange');return false;" id="btnAktivitet2">Hvor mange dager med minst 30 minutt gange(Sju siste dagene)?</a></li>
+                        {/*     <li class="nav-item"><a href="" class="nav-link text-small pb-0 " onclick="setHeader('Middels angstrengende aktivitet');return false;" id="btnAaktivitet3"> Dager med middels anstrengende fysisk aktivitet</a></li>
+                                <li class="nav-item"><a href="" class="nav-link text-small pb-0 " onclick="setHeader('Meget angstrengende aktivitet');return false;" id="btnAaktivitet4"> Dager med meget anstrengende fysisk aktivitet</a></li>
+                      */}
+                      </ul>
+                    </div>
+                    <div className="col-6 col-md-4 col-xl-2">
+                      <h6 className="font-weight-bold text-uppercase">Livsfaktorer</h6>
+                      <hr style={{backgroundColor: '#ffffff'}} />
+                      <ul id="menu">
+                        <li className="nav-item"><a href="#" onclick="setHeader('Hva er din hustands samlete bruttoinntekt?');return false;" id="btnLivet1" className="nav-link text-small pb-0">Hustands samlede bruttoinntekt</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader(' Høyeste fullførte utdanning');return false;" id="btnLivet2"> Høyeste fullførte utdanning</a></li>
+                        <li className="nav-item"><a href className="nav-link text-small pb-0 " onclick="setHeader('Sivilstatus');return false;" id="btnLivet3">Sivilstatus</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* END: MegadropDown menu */}
+            {/* START: Cards */}
+            <div className="row" id="tour_1">
+              <div className="col s12 l3 m6">
+                <div className="card shadow bg-c-yellow font-weight-bold order-card">
+                  <div className="card-block">
+                    <p className="m-b-20">Antall deltakere</p>
+                    <h5 className="text-right"><i className="fa fa-male f-right" /><i className="fa fa-female f-right" />
+                      <span><div id="numbers" /></span></h5>
+                  </div>
+                </div>
+              </div>
+              <div className="col s12 l3 m6">
+                <div className="card shadow bg-c-green font-weight-bold order-card">
+                  <div className="card-block">
+                    <p className="m-b-20">Gjennomsnitt BMI</p>
+                    <h5 className="text-left"><i className="fa fa-weight f-right" /><span id="bmiavg" /></h5>
+                  </div>
+                </div>
+              </div>
+              <div className="col s4 l3 m6">
+                <div className="card shadow bg-c-blue font-weight-bold order-card">
+                  <div className="card-block">
+                    <p className="m-b-20">Menn</p>
+                    <h5 className="text-left"><i className="fa fa-male f-right" /><span id="male" /></h5>
+                  </div>
+                </div>
+              </div>
+              <div className="col s4 l3 m6">
+                <div className="card shadow bg-c-pink font-weight-bold order-card">
+                  <div className="card-block">
+                    <p className="m-b-20">Kvinner</p>
+                    <h5 className="text-left"><i className="fa fa-female f-right" /><span id="female"> </span><span id="femaleage" /></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/*END: cards  */}
+            {/* START: Charts  */}
+            <div className="row" id="tour_3">
+              <div className=" col-sm-3 col-md-3 col-lg-12 col-xl-4" id="tour_2">
+                <div className="card shadow border-left-primary ">
+                  <div className="card-content">
+                    <div className="text-uppercase text-black font-weight-bold  mb-1"><span>BMI</span></div>
+                    <div id="question-chart" />
+                  </div>
+                </div>
+                {/* Menu choice updates this charts heading */}
+                <div className="card shadow border-left-primary ">
+                  <div className="card-content">
+                    <div className="text-uppercase text-black font-weight-bold  mb-1"><span id="header" /></div>
+                    <div id="filter-chart" />
+                  </div>
+                </div>
+                <div className="card shadow border-left-primary">
+                  <div className="card-content">
+                    <div className="text-uppercase text-black font-weight-bold  mb-1"><span>Kjønn</span></div>
+                    <div id="gender-chart" />
+                  </div>
+                </div>
+              </div>
+              <div className="  col-sm-3 col-md-3 col-lg-12 col-xl-4 order-lg-last">
+                <div className="card shadow border-left-primary ">
+                  <div className="card-content">
+                    <div className="text-uppercase text-black font-weight-bold  mb-1"><span>Aldersgrupper</span></div>
+                    <div id="age-chart" />
+                  </div>
+                </div>
+                {/* START: map & map filter */}
+                <div className="card shadow border-left-primary ">
+                  <div className="card-content">
+                    <div className="text-uppercase text-black font-weight-bold  mb-1"><span>Fylker</span></div>
+                    <div id="fylker-chart" />
+                  </div>
+                </div>
+              </div>
+              <div className=" col-sm-6 col-md-3 col-lg-12 col-xl-4 " id="tour_4">
+                <div className="card shadow border-left-primary ">
+                  <div id="map" />
+                </div>
+              </div>
+              {/* END: CHARTS & map*/}
+            </div>
+          </div> {/* container */}
+        </div> {/* container-fluid */}
+
+
+
+
+
