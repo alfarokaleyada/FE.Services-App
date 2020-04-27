@@ -13,11 +13,13 @@ const v1 = require('./routes/v1') // call routes v1
 
 
 // Sets up the Express App
+const app = express();
+
+// Sets up the Express App
 const PORT = process.env.PORT || 3000;
 
 
-// Sets up the Express App
-const app = express();
+
 
 // ----------- DB config --------- //
 
@@ -72,16 +74,6 @@ app.use(passport.initialize())
 app.use(passport.session());
 
 
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "'http://localhost:3000");
-//     res.header("Access-Control-Allow-Methods: POST,GET,PUT,DELETE")
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,");
-
-//     next();
-//   });
-
-// app.use(cacheControl());
-
 // app.use(routes);
 
 
@@ -91,11 +83,6 @@ app.use('/api/v1', v1); // v1 = require('./routes/v1') // hostname/api1/v1/regis
 
 // -----------  ERRORS --------- //
 
-// app.use((req, res, next) => {
-//     res.status(404).send({
-//         message: 'not found'
-//     })
-// });
 
 app.use((req, res ,next) => {
 
