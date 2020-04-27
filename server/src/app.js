@@ -9,8 +9,6 @@ const cors = require ('cors')
 const cacheControl = require('cache-control');
 const v1 = require('./routes/v1') // call routes v1 
 
-
-
 // --------------------------------------------------------------
 
 // const routes = require("./routes");
@@ -30,8 +28,20 @@ const v1 = require('./routes/v1') // call routes v1
 // Sets up the Express App
 const app = express();
 
-
 // ----------- DB config --------- //
+
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  databaseToUse =
+    "mongodb:/farokeyada:test123@ds163757.mlab.com:33167/heroku_5rsglhq7";
+} else {
+  databaseToUse = "mongodb://localhost/reactBoilerplate";
+}
 
 
 mongoose.connect(process.env.MOMGO_DB_URL,{
@@ -44,8 +54,12 @@ mongoose.connection.on('connected', () =>{
 
 mongoose.connection.on('error', (err) => {
     console.error("Failed to conect to the database: ${err}");
-    }),
+    });
                   
+
+
+
+
 
 // ----------- DB Middlewares --------- //
 app.use(cors())
@@ -62,25 +76,21 @@ app.use(passport.initialize())
 app.use(passport.session());
 
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "'http://localhost:3000");
-    res.header("Access-Control-Allow-Methods: POST,GET,PUT,DELETE")
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,");
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "'http://localhost:3000");
+//     res.header("Access-Control-Allow-Methods: POST,GET,PUT,DELETE")
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,");
 
-    next();
-  });
+//     next();
+//   });
 
-app.use(cacheControl());
+// app.use(cacheControl());
 
 
 
 app.use('/public', express.static('public'));
-
-
 // -----------  Routes --------- //
-
 app.use('/api/v1', v1); // v1 = require('./routes/v1') // hostname/api1/v1/register
-
 
 // -----------  ERRORS --------- //
 
