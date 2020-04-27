@@ -142,7 +142,6 @@ router.all('*', (req, res, next) => {
 
 
 
-
 router.get('/arch', archController.get);
 router.post('/arch', archController.create );
 router.put('/arch/:arch_id', archController.update);

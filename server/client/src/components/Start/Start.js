@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, RedirectProps } from 'react-router'
-import {Home} from "../Home/Home"
+import {Homen} from "../Homen"
 import { Route } from 'react-router-dom';
 
 
@@ -8,7 +8,7 @@ import $ from 'jquery'
 
 import "./Start.css";
 
-const home = <Route path='/' component={Home} exact />
+const home = <Route path='/' component={Homen} exact />
 
 class Start extends Component {
     
@@ -30,7 +30,7 @@ class Start extends Component {
         return (
             <div>
                 <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
-                <meta http-equiv="refresh" content="10;/Home"/>
+                <meta http-equiv="refresh" content="10;/Homen"/>
                 <meta name="keywords" content="Farok Eyada, home" />
                 <meta name="description" content="Farok Eyada's personal website" />
                 <link rel="stylesheet" type="text/css" href="style2.css" />
@@ -47,7 +47,7 @@ class Start extends Component {
                 <div className="parent">
                     <h1 className="right uc">Farok Eayda</h1> 
                     <ul className="child hover fade-in">
-                    <p className="all25"> You are welcome!</p>
+                    <p className="all25" style={{color: '#50E3C2'}} > “ Reality must be more beautiful, honest and clear than   <span>imagination</span>. ”</p>
                         {/* <li className="all25"><a href="portfolio.html">portfolio</a></li>
                         <li className="all25"><a href="resume.html">resume</a></li>
                         <li className="all25"><a href="about.html">about</a></li>

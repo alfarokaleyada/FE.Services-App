@@ -91,7 +91,7 @@
     font-weight : 700;
   }
   
-  .learn-more {
+  /* .learn-more {
     display : inline-block;
     border : 2px solid white;
     margin-left : 80px;
@@ -115,16 +115,29 @@
   
   .learn-more:hover {
     background-color :  #50E3C2;
-  }
-  
+  } */
+/*   
   .form {
     margin: 20px;
-  }
+  } */
   
   .form input {
     display: block;
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 100%;
+    width: 50%;
   }
-  
+
+
+  button {
+    color: rgb(0, 0, 0);
+    font-width: bold;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 50px;
+    width: 40%;
+
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, RedirectProps } from 'react-router'
-import {Home} from "../Home/Home"
+import {Homen} from "../Homen"
 import { Route } from 'react-router-dom';
 
 
@@ -8,7 +8,7 @@ import $ from 'jquery'
 
 import "./test1.css";
 
-const home = <Route path='/' component={Home} exact />
+const home = <Route path='/' component={Homen} exact />
 
 class Test extends Component {
     
@@ -28,54 +28,50 @@ class Test extends Component {
       
     render() {
         return (
-            <div>
-                    <div className="container" id="container">
-        <div className="form-container sign-up-container">
-          <form action="#">
-            <h1>Create Account</h1>
-            <div className="social-container">
-              <a href="#" className="social"><i className="fab fa-facebook-f" /></a>
-              <a href="#" className="social"><i className="fab fa-google-plus-g" /></a>
-              <a href="#" className="social"><i className="fab fa-linkedin-in" /></a>
+          <div>
+                <h2>Thank You So Much</h2>
+            <p>A small group of works that we did before, thanks and appreciation for your meeting with us.</p>
+          <article>
+            <div className="box">
+              <div className="feed"><h2>Museum project</h2>
+                <p>The project consists of galleries for monuments, as well as rest places and cinemas.</p>
+              </div>
             </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
-          </form>
-        </div>
-        <div className="form-container sign-in-container">
-          <form action="#">
-            <h1>Sign in</h1>
-            <div className="social-container">
-              <a href="#" className="social"><i className="fab fa-facebook-f" /></a>
-              <a href="#" className="social"><i className="fab fa-google-plus-g" /></a>
-              <a href="#" className="social"><i className="fab fa-linkedin-in" /></a>
+            <div className="box"><img src="https://i.ibb.co/ftKyFrj/2020-04-26-15-19-37.png" alt="" /></div>
+          </article>
+          <article>
+            <div className="box">
+              <div className="feed"><h2>Vertical section</h2>
+                <p>A vertical section of a two-storey house that contains several bedrooms and a garage.</p>
+              </div>
             </div>
-            <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
-          </form>
-        </div>
-        <div className="overlay-container">
-          <div className="overlay">
-            <div className="overlay-panel overlay-left">
-              <h1>Welcome Back!</h1>
-              <p>Please login with your personal info.</p>
-              <button className="ghost" id="signIn">Sign In</button>
+            <div className="box"><img src="https://i.ibb.co/HB72v0r/2020-04-26-15-29-18.png" alt="" /></div>
+          </article>
+          <article>
+            <div className="box">
+              <div className="feed"><h2>Graduation Project</h2>
+                <p>A graduation project consisting of a museum, office and several theaters with galleries.</p>
+              </div>
             </div>
-            <div className="overlay-panel overlay-right">
-              <h1>Hello!</h1>
-              <p>Enter your personal details.</p>
-              <button className="ghost" id="signUp">Sign Up</button>
+            <div className="box"><img src="https://i.ibb.co/gP56qsz/2020-04-26-15-58-53.png" alt="" /></div>
+          </article>
+          <article>
+            <div className="box">
+              <div className="feed"><h2>Vertical section</h2>
+                <p>A theater sector that contains several theaters and cinemas.</p>
+              </div>
             </div>
-          </div>
-        </div>
-        </div>
-
+            <div className="box"><img src="https://i.ibb.co/nbv2QF1/2020-04-26-16-00-20.png" alt="" /></div>
+          </article>
+          <article>
+            <div className="box">
+              <div className="feed"><h2>Layout</h2>
+                <p>A public site that contains several buildings and is a large complex.</p>
+              </div>
+            </div>
+            <div className="box"><img src="https://i.ibb.co/DQv0P22/2020-04-26-16-02-14.png" alt="" /></div>
+          </article>
+        
         </div>
 
      );

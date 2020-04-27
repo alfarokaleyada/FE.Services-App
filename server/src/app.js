@@ -7,9 +7,6 @@ const bodyParser = require('body-Parser');
 const passport = require('passport')
 const cors = require ('cors')
 const cacheControl = require('cache-control');
-
-
-
 const v1 = require('./routes/v1') // call routes v1 
 
 

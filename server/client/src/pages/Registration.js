@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import API from "./utils/API";
 import axios from 'axios';
+import Alert from 'react-bootstrap/Alert'
 
 
 
 import "./Registration.css";
  
 class Registration extends Component {
-
-
     
     constructor(proos) {
     
@@ -18,7 +17,8 @@ class Registration extends Component {
             name: "",
             email: "",
             password: "",
-            error: ""
+            error: "",
+            start:""
                        
         };
 
@@ -64,18 +64,22 @@ class Registration extends Component {
         },
 
         ).then(response => {
-            console.log("reggggggggggggg",response )
+            console.log("200 sec",response )
 
             if (response.data == `Email address (${this.state.email}) is already taken`)
             this.setState({
-                error : response.data
+                error : response.data ,
             }) 
-            console.log(response.data)
-        })
 
-        
+            if (response.data != `Email address (${this.state.email}) is already taken` )
+            this.setState({
+              start : "Successfully Registered! Thank you for being part of or family" ,
+          }) 
+
+        })
+       
         .catch(error => {
-              console.log("reg errrrrrrrrrrr",error );
+              console.log("errrrr",error );
         });
         console.log ("submend");
         console.log (this.state.name);
@@ -104,15 +108,22 @@ class Registration extends Component {
                     {/* <header className="logo"> JD </header> */}
           <div className="segment">
             <h1 className="one" >Sing up</h1>
-            <p style={{color: 'blue'}}> {this.state.error} </p>
+            {/* <p style={{color: 'blue'}}> {this.state.error} </p> */}
+            <Alert style={{color: '#50E3C2'}} > {this.state.error} </Alert>
+            <Alert style={{color: '#50E3C2'}} > {this.state.start} </Alert>
 
-          </div>   
+
+          </div> 
+
+
            <label> 
            <input type="name" name="name" placeholder="Name" value={this.state.name} onChange={this.handleChange} required />
           </label>
+
           <label>
              <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
           </label>
+
           <label>
                <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required />
           </label>
@@ -124,6 +135,9 @@ class Registration extends Component {
 
               <i className="fa fa-arrow-left" aria-hidden="true" />
             </button>
+
+
+
             <button className="unit" type="button">
               <i className="fa fa-bookmark" aria-hidden="true" />
             </button>
@@ -131,14 +145,9 @@ class Registration extends Component {
               <i className="fa fa-cog" aria-hidden="true" />
             </button>
           </div>
-          <div className="input-group">
-            <label>
-              <input type="text" placeholder="Email Address" />
-            </label>
-            <button className="unit" type="button">
-              <i className="fa fa-search" aria-hidden="true" />
-            </button>
-          </div>
+         
+          <small><a href="/Login" className="form-text text-muted">I have an account!</a></small>
+
         </form>
 
                    <div>

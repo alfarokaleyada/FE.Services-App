@@ -14,15 +14,26 @@ import {
   NavbarText
 } from 'reactstrap';
 
+
+
+
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
+
+  
+
+  
   return (
+
+
     <div>
+
+      
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/home">FE Architecture</NavbarBrand>
+        <NavbarBrand href="/Homen">FE Architect</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -30,9 +41,12 @@ const NavBar = (props) => {
               <NavLink href="/Registration">Registration</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Test">GitHub</NavLink>
+              <NavLink href="/Test">Projects</NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
+            <NavItem>
+              <NavLink href="/about">About us</NavLink>
+            </NavItem>
+            {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Options
               </DropdownToggle>
@@ -48,11 +62,10 @@ const NavBar = (props) => {
                   Reset
                 </DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown>
-            
-          </Nav>
-          
-          <NavLink href="/login">Login</NavLink>
+            </UncontrolledDropdown> */}
+        </Nav>
+           
+          <NavLink href="/login">Home</NavLink>
           <NavbarText>Farok Eyada</NavbarText>
         </Collapse>
       </Navbar>

@@ -7,9 +7,10 @@ const ArchSchema = Schema({
     
     name: {type: String  },
     place: {type: String},
-    area: {type: Number },
+    area: {type: String },
+    hight: {type: String },
+
     description : {type: String },
-    image: {type: String  },
     created: {type: Date, required: true},
     profileImg: {type: String},
     user:{

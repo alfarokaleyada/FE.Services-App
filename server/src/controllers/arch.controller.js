@@ -7,15 +7,12 @@ let multer = require('multer'),
     uuidv4 = require('uuid/v4'),
     router = express.Router();
 
-
 const DIR = './public';
-
 const archController = {};
 
 
 
 // -------- user multer   ------- //
-
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -110,13 +107,9 @@ console.log("Before archController.Post ")
 
 
 
-
-
-
-
  archController.create =   router.post ('/arch', upload.single('profileImg'), async (req, res, next) => {
     const url = req.protocol + '://' + req.get('host')
-    const {name, place , area,description ,image , created,profileImg } = req.body;
+    const {name, place , area,description ,image ,Day, created,profileImg,hight } = req.body;
 
     const newArach = new Arch({
         name,
@@ -124,7 +117,9 @@ console.log("Before archController.Post ")
         area,
         description,
         image,
+        hight,
         created,
+        Day,
         user:req.user,
         profileImg: url + '/public/' + req.file.filename
     });
@@ -242,7 +237,9 @@ console.log("Before archController.Post ")
     }
 
  archController.destroy = async (req, res, next) => {
+     console.log("test one")
     const archId = req.params.arch_id;
+    console.log("test two")
 
     try {
         await Arch.deleteOne({_id: archId})
@@ -251,10 +248,23 @@ console.log("Before archController.Post ")
         })
     }catch(e){
         next(e);
-    
-    }
+        }
  
 }
+
+//route to delete Fruit
+// rchController.destroy = router.post('/arch/:arch_id', (req, res, next) => {
+// 	let id = mongoose.Types.ObjectId(req.body._id);
+// 	db.Arch
+// 		.remove({ _id: id })
+// 		.then((Arch) => {
+// 			res.json(Arch);
+// 		})
+// 		.catch((err) => {
+// 			res.json(err);
+// 		});
+// });
+
 
  // ------- regusiter in funcation ------- // 
 

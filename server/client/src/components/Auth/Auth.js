@@ -1,117 +1,171 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {getJwt} from './Helpers'
-import { withRouter } from 'react-router-dom'
+import { withRouter , Redirect } from 'react-router-dom'
+import Items from './Items';
+import "./Auth.css";
 
- import "./Auth.css";
+import { history } from 'history';
+
+import { Button, CardGroup ,CardDeck, Card} from 'react-bootstrap';
+
 
 class Auth extends Component {
 
-
     constructor(props) {
         super(props);
-
         this.onFileChange = this.onFileChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        // this.handleChange = this.handleInputChange.bind(this);
 
+        // set states
         this.state = {
             user1 :undefined,
-            profileImg: ''
+            profileImg: '',
+            name: "",
+            test: [],
+            nameFromForm: "",
+            area: "",
+            hight: "",
+            Day: "",
+            description: "",
+            place: "",
+
             }   
         }
 
+ 
+        // handleInputChange
+        handleInputChange = event => {
+          // Getting the value and name of the input which triggered the change
+          const { name,place, value } = event.target;
+      
+          // Updating the input's state
+          this.setState({
+            [name]: value,
+            [place]: value,
+            
 
+          });
+        };
+   
         onFileChange(e) {
             this.setState({ profileImg: e.target.files[0] })
         }
 
-   
 
 
-    
-    onSubmit(e) {
-        e.preventDefault()
-        const jwt  = getJwt();
-     
+       
 
+       
+        onSubmit(e) {
+            e.preventDefault()
+            const jwt  = getJwt();                   
         // const formData = new FormData()
         // formData.append('profileImg', this.state.profileImg)
         const formData = new FormData()
         formData.append('profileImg', this.state.profileImg)
-        formData.append('name', "Farok Test")
-        formData.append('created', 11-24-2019)
+        formData.append('name', this.state.name)
+        formData.append('created', Date.now())
+        formData.append('place', this.state.place)
+        formData.append('description', this.state.description)
+        formData.append('area', this.state.area)
+        formData.append('day', this.state.day)
+        formData.append('hight', this.state.hight)
+
 
 
 
         console.log(this.state.profileImg)
         axios.post("/api/v1/arch",  formData,
-        //  {
-        
-        //     name: "test from aiozs",
-        //     created: "11-24-2019"
-        //     },
-
+        //   {
+        //   name : this.state.name,
+        // //     created: "11-24-2019"
+        //   },
         { headers : 
         {
             Authorization : `Bearer ${jwt}`}
-        },
-       
+        },     
         console.log( "Authorization")
 
         ).then(response => {
             console.log(response)
            this.props.history.push("/Login")
-
         })
-
-
         .catch (err => {
-            localStorage.removeItem('cool-jwt');
-            console.log(err)
-       
+            console.log(err)       
         })
     }
 
+        //deletes function
+        deleteItem= (id) => {
+          const jwt  = getJwt();
+          const data = {
+            arch_id: id
+          };
+          // console.log("working data one")
+          // ItemsAPI.deleteItem(data)
+          axios.delete("/api/v1/arch/" + data.arch_id, { headers : 
+            {
+                Authorization : `Bearer ${jwt}`}
+            },)
+          .then(this.componentDidMount ())
+          .catch((err) => console.log(err));
+        };
+        
+        // update function 
+        updateItem= (id , newName, newPlace) => {
+          const jwt  = getJwt();
+          newName = this.state.name
+          newPlace = this.state.place
+          const data = {
+            arch_id: id,
+            name : newName,
+            place : newPlace
+          };
 
+        // console.log("working data one")
+        // ItemsAPI.deleteItem(data)
+        axios.put("/api/v1/arch/" + data.arch_id, data ,{ headers : 
+          {
+              Authorization : `Bearer ${jwt}`}
+          },)
+        .then(this.componentDidMount ())
+        .catch((err) => console.log(err));
+      };
 
-
-
-
-
+    // get from db
     componentDidMount (){
         const jwt  = getJwt();
         if(!jwt) {
             localStorage.removeItem('cool-jwt');
-            console.log("!jwt")
-
         }
-
         axios.get("/api/v1/arch" ,
          {headers : 
             {Authorization : `Bearer ${jwt}` }
         })
         .then(res => {this.setState
             (
-                {name:res.data.arch[0].name,
-                created:res.data.arch[0].created,
-                profileImg:res.data.arch[0].profileImg
-               
-                }
-            )
-            console.log(res.data)
-
-        })
+                {
+                // name:res.data.arch[0].name,
+                // created:res.data.arch[0].created,
+                // profileImg:res.data.arch[0].profileImg
+                test:res.data.arch
+                })
+    })
 
             
             .catch (err => {
                 // localStorage.removeItem('cool-jwt');
                 console.log("error")
             });
-        
+       
     }
 
-
-
+    logout(e) { 
+      localStorage.removeItem('cool-jwt');
+      window.location.href = '/Login';
+     }
 
     render() { 
         if(this.state.user = undefined) {
@@ -120,159 +174,125 @@ class Auth extends Component {
         );
         }
 
-
-
         return (
             <div>
-                            <div className="header">
-                            <div className="clipped">
-                                <h1 id="title">Title</h1>
-                            </div>
-                            </div>
-                            <content>
-                            <h2>This is a subtitle</h2>
-                            <hr />
-                            <p>Since a previous update of Google Chrome, this effect is not working anymore like before. I used 'text-fill-color' together with 'background-clip'. Now I changed it to 'mix-blend-mode'. This is alot easier in my opinion. You can still find the "old" version commented out in the CSS.</p>
-                            </content>
-                            <div classname="upload">
-                            <input name="titleInput" type="text" placeholder="Enter title" />
-                             <input  name="titleInput" type="file" onChange={this.onFileChange} />
-                              <input name="titleInput" type="text" placeholder="Enter area" />
-                               <input name="titleInput" type="text" placeholder="Enter place" />
-                                <input name="titleInput" type="text" placeholder="Enter description" />
-                            <button id="uploadButton">
-                                Upload image
-                            </button>
-                            <input id="uploadFile" type="file" name="image" className="img" defaultalue="Upload image" />
+              <div className="header">
+              <button  className="uploadButton" type="submit" className="btn btn-primary btn-lg btn-block" onClick={this.logout}>Logout</button>                                                                       
+                <div className="clipped">
+                    <h1 id="title"> Welcome  {this.state.test.name}</h1>
+                </div>
+              </div>
+                <content>
+                    <h2>We offer the best service             </h2>
+                      <hr />
+                        <p>After sending the project to us, we will do the service for free and try to provide our solutions for a maximum of one week</p>
 
+                          <div className="container h-100vh">
+                            <div className="row row h-100 align-items-center justify-content-centerr">
+                                    <div className="col align-self-cente ">
+                                      <div className="card">
+                                        <div className="card-header text-center display-4">
+                                          Add New Project!
+                                        </div>
+                                        <div className="card-body">
+                                          <form onSubmit={this.onSubmit}>
+                                                  <div className="form-row">
+                                                    <div className="form-group col-md-5">
+                                                      <label htmlFor="firstName">project name</label>
+                                                    <input value={this.state.name} name="name"  className="form-control" onChange={this.handleInputChange}
+                                                    type="text" placeholder="Upgrade kitchen design..."/>                                            
+                                                    </div>
 
-                                            
-                                             Auth  {this.props.children}
-                                             Hello {this.state.name}
-                                            {/* Hello {this.state.profileImg} */}
-                                            <img src={this.state.profileImg} />
+                                                    <div className="form-group col-md-5">
+                                                      <label htmlFor="Sername">place</label>
+                                                      <input value={this.state.place} name="place" type="text" className="form-control" id="Sername" placeholder="home, office ..etc" onChange={this.handleInputChange}/>
+                                                    </div>
 
-                                            created {this.state.created}
+                                                    <div className="form-group col-md-2">
+                                                      <label htmlFor="middleName">add image</label>
+                                                      <input  name="titleInput" type="file" className="form-control" onChange={this.onFileChange} />
+                                                    </div>
 
-                                        <form onSubmit={this.onSubmit}>
+                                                  </div>
+                                                  <div className="form-row">
+                                                    <div className="form-group col-md-4">
+                                                      <label htmlFor="inputState">area</label>
+                                                      <select  value={this.state.area} name="area" id="yeardropdown" className="form-control" onChange={this.handleInputChange}>
+                                                        <option selected>between...</option>
+                                                        <option value="25-50">25-50</option>
+                                                        <option value="50-100">50-100</option>
+                                                        <option value="100-200">100-200</option>
+                                                        <option value="200- ...">200- ...</option>
+                                                      </select>
+                                                    </div>
+                                                
+
+                                                    <div className="form-group col-md-4">
+                                                      <label htmlFor="inputState">hight</label>
+                                                      <select name="hight" id="monthdropdown" className="form-control">
+                                                        <option selected>hight...</option>
+                                                        <option value="3 - 6">3 - 6</option>
+                                                        <option value="6 - ...">6 - ...</option>
+                                                      </select>
+                                                    </div>
+                                                    
+                                                    <div className="form-group col-md-4">
+                                                      <label htmlFor="inputState">Day</label>
+                                                      <select name="Day"  id="daydropdown" className="form-control">
+                                                        <option selected>Day...</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                      </select>
+                                                    </div>
+                                                  </div>
+                                                  <div className="form-row">
+                                                    <div className="form-group col-md-12">
+                                                      <label htmlFor="inputEmail4">description</label>
+                                                      <input value={this.state.description}  type="textarea" name="description" className="form-control" id="inputEmail4" placeholder="I would like to chang...."onChange={this.handleInputChange} />
+                                                    </div>
+                                                 </div>                                                                                    
+                                                  <button  className="uploadButton" type="submit" className="btn btn-primary btn-lg btn-block">Upload</button>                                                                                 
+                                                </form>
+                                                                                                                                          
+                                                  <Items
+                                                      items={this.state}
+                                                      deleteItem={this.deleteItem}
+                                                      updateItem={this.updateItem}
+                                                      handleInputChange={this.handleInputChange}
+                                                    />
+
+                                              </div>                                                                                          
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </content>                  
+
+                                        {/* <form onSubmit={this.onSubmit}>
+                                          <input
+                                              value={this.state.name}
+                                              name="name"
+                                              onChange={this.handleInputChange}
+                                              type="text"
+                                              placeholder="name"
+                                            />
+                                            <input  name="titleInput" type="file" onChange={this.onFileChange} />
                                             <div className="form-group">
-                                                {/* <input type="file" onChange={this.onFileChange} /> */}
                                             </div>
-                                            <div className="form-group" >
+                                              <div className="form-group" >
                                                 <button className="uploadButton" type="submit">Upload</button>
-                                            </div>
-                                        </form>
-                             </div>
+                                            </div>                                        
+                                        </form>                               */}
 
-
-
-
-      <div className="container h-100vh">
-
-   <div className="row row h-100 align-items-center justify-content-centerr">
-          <div className="col align-self-cente ">
-            <div className="card">
-              <div className="card-header text-center display-4">
-                Add new project
-              </div>
-              <div className="card-body">
-                <form>
-                  <div className="form-row">
-                    <div className="form-group col-md-4">
-                      <label htmlFor="firstName">First Name</label>
-                      <input type="text" className="form-control" id="firstName" placeholder="First Name" />
-                    </div>
-                    <div className="form-group col-md-4">
-                      <label htmlFor="middleName">Middle Name</label>
-                      <input type="text" className="form-control" id="middleName" placeholder="Middle Name" />
-                    </div>
-                    <div className="form-group col-md-4">
-                      <label htmlFor="Sername">Sername</label>
-                      <input type="text" className="form-control" id="Sername" placeholder="Sername" />
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group col-md-4">
-                      <label htmlFor="inputState">Year</label>
-                      <select id="yeardropdown" className="form-control">
-                        <option selected>Year...</option>
-                      </select>
-                    </div>
-                    <div className="form-group col-md-4">
-                      <label htmlFor="inputState">Month</label>
-                      <select id="monthdropdown" className="form-control">
-                        <option selected>Month...</option>
-                      </select>
-                    </div>
-                    <div className="form-group col-md-4">
-                      <label htmlFor="inputState">Day</label>
-                      <select id="daydropdown" className="form-control">
-                        <option selected>Day...</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group col-md-6">
-                      <label htmlFor="inputEmail4">Email</label>
-                      <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
-                    </div>
-                    <div className="form-group col-md-6">
-                      <label htmlFor="inputPassword4">Password</label>
-                      <input type="password" className="form-control" id="inputPassword4" placeholder="Password" />
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group col-md-4">
-                      <label htmlFor="inputState">Country</label>
-                      <select id="country" className="form-control">
-                        <option selected>Country...</option>
-                        <option>...</option>
-                      </select>
-                    </div>
-                    <div className="form-group col-md-4">
-                      <label htmlFor="inputState">State</label>
-                      <select id="state" className="form-control">
-                        <option selected>State...</option>
-                        <option>...</option>
-                      </select>
-                    </div>
-                    <div className="form-group col-md-4">
-                      <label htmlFor="phonenumber">Phone Number</label>
-                      <input type="number" className="form-control" id="phonenumber" placeholder="Phone Number" />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <small><a href="https://codepen.io/MKAbuMattar/pen/RwwMEVY" className="form-text text-muted">I have an account!</a></small>
-                  </div>
-                  <button type="submit" className="btn btn-primary btn-lg btn-block">Sign in</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                             {/* <Items
+                                items={this.state}
+                                deleteItem={this.deleteItem}
+                                updateItem={this.updateItem}
+                                handleInputChange={this.handleInputChange}
+                                // formName ={this.getName}
+                              /> */}
 
 {/* 
 
@@ -297,7 +317,9 @@ class Auth extends Component {
         <div className="color-overlay" />
       </div>{/* /.blog-card */}
 
-                              */}
+                          
+
+                              
 
             </div>   
       );
