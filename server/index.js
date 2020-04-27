@@ -1,6 +1,6 @@
 // Dependencies
 require('dotenv').config();       // to use .env file
-const app = require ('./src/app') // call app'
+const app = require ('./app') // call app'
 
 // Sets up the Express App
 const PORT = process.env.PORT || 3000;
