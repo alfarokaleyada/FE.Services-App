@@ -35,10 +35,10 @@ if (process.env.NODE_ENV === "production") {
   databaseToUse =
     "mongodb:/farokeyada:test123@ds163757.mlab.com:33167/heroku_5rsglhq7";
 } else {
-  databaseToUse = "mongodb://localhost/reactBoilerplate";
+  databaseToUse = process.env.MOMGO_DB_URL;
 }
 
-const MONGODB_URI = process.env.MONGODB_URI || databaseToUse;
+const MONGODB_URI = process.env.MONGODB_URI || process.env.MOMGO_DB_URL;
 
 mongoose.Promise = global.Promise;
 
