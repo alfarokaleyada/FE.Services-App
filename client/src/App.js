@@ -10,12 +10,6 @@ import Test from "./components/test/test1"
 import { Homen  } from './components';
 import { Footer  } from './components';
 
-
-
-
-
-
-
 function App() {
   return (
     <div>
