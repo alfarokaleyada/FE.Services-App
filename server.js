@@ -48,7 +48,7 @@ if (process.env.NODE_ENV === "production") {
   databaseToUse =
     "mongodb:/farokeyada:test123@ds233167.mlab.com:33167/heroku_5rsglhq7";
 } else {
-  databaseToUse = "mongodb://localhost/reactBoilerplate";
+    databaseToUse = "mongodb://localhost:27017/expressapp";
 }
 
 
