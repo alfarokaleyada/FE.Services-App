@@ -30,7 +30,7 @@ class About extends Component {
                 <p>We provide a special online service while you are sitting in your home, we provide drawing services, interior and exterior designs, and 2D and 3D designs...</p> 
                 </div>
                 <div className="learn-more1">
-                <a href="https://en.wikipedia.org/wiki/Elon_Musk">Get Started FE Designer!!</a>
+                <a href="/Registration">Get Started FE Designer!!</a>
                 </div>
                 
             </div>
@@ -49,11 +49,11 @@ class About extends Component {
             <CardDeck>
                     <Card>
                         <figure className="snip15151">
-                            <div className="profile-image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample47.jpg" alt="sample47" /></div>
+                            <div className="profile-image"><img src="https://i.ibb.co/ftKyFrj/2020-04-26-15-19-37.png" alt="sample47" /></div>
                             <figcaption>
-                                <h3>Fleece Marigold</h3>
-                                <h4>Founder</h4>
-                                <p>Which is worse, that everyone has his price, or that the price is always so low.</p>
+                                <h3>3D Model</h3>
+                                <h4>MUSEUM PROJECT</h4>
+                                <p>Was used in this project 3D Max and AutoCAD.</p>
                                 <div className="icons"><a href="#"><i className="ion-social-reddit" /></a>
                                 <a href="#"> <i className="ion-social-twitter" /></a>
                                 <a href="#"> <i className="ion-social-vimeo" /></a>
@@ -64,11 +64,11 @@ class About extends Component {
 
                 <Card>
                 <figure className="snip15151">
-                    <div className="profile-image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample83.jpg" alt="sample83" /></div>
+                    <div className="profile-image"><img src="https://i.ibb.co/nbv2QF1/2020-04-26-16-00-20.png" alt="sample83" /></div>
                     <figcaption>
-                        <h3>Norman Gordon</h3>
-                        <h4>Web Designer</h4>
-                        <p>I'm killing time while I wait for life to shower me with meaning and happiness.</p>
+                        <h3>VERTICAL SECTION</h3>
+                        <h4>Shop Drawing</h4>
+                        <p>A vertical section of a two-storey house that contains several bedrooms and a garage..</p>
                         <div className="icons"><a href="#"><i className="ion-social-reddit" /></a>
                         <a href="#"> <i className="ion-social-twitter" /></a>
                         <a href="#"> <i className="ion-social-vimeo" /></a>
@@ -79,11 +79,11 @@ class About extends Component {
 
                 <Card>
                         <figure className="snip15151">
-                            <div className="profile-image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample47.jpg" alt="sample47" /></div>
+                            <div className="profile-image"><img src="https://i.ibb.co/DQv0P22/2020-04-26-16-02-14.png" alt="sample47" /></div>
                             <figcaption>
-                                <h3>Fleece Marigold</h3>
-                                <h4>Founder</h4>
-                                <p>Which is worse, that everyone has his price, or that the price is always so low.</p>
+                                <h3>Layout</h3>
+                                <h4>Site Drawing</h4>
+                                <p>A public site that contains several buildings and is a large complex..</p>
                                 <div className="icons"><a href="#"><i className="ion-social-reddit" /></a>
                                 <a href="#"> <i className="ion-social-twitter" /></a>
                                 <a href="#"> <i className="ion-social-vimeo" /></a>
@@ -96,62 +96,6 @@ class About extends Component {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* 
-
-
-            <figure className="snip15151">
-          <div className="profile-image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample47.jpg" alt="sample47" /></div>
-          <figcaption>
-            <h3>Fleece Marigold</h3>
-            <h4>Founder</h4>
-            <p>Which is worse, that everyone has his price, or that the price is always so low.</p>
-            <div className="icons"><a href="#"><i className="ion-social-reddit" /></a>
-              <a href="#"> <i className="ion-social-twitter" /></a>
-              <a href="#"> <i className="ion-social-vimeo" /></a>
-            </div>
-          </figcaption>
-        </figure>
-        <figure className="snip15151">
-          <div className="profile-image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample83.jpg" alt="sample83" /></div>
-          <figcaption>
-            <h3>Norman Gordon</h3>
-            <h4>Web Designer</h4>
-            <p>I'm killing time while I wait for life to shower me with meaning and happiness.</p>
-            <div className="icons"><a href="#"><i className="ion-social-reddit" /></a>
-              <a href="#"> <i className="ion-social-twitter" /></a>
-              <a href="#"> <i className="ion-social-vimeo" /></a>
-            </div>
-          </figcaption>
-        </figure>
-        <figure className="snip15151">
-          <div className="profile-image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample70.jpg" alt="sample70" /></div>
-          <figcaption>
-            <h3>Ruby Von Rails</h3>
-            <h4>Public Relations</h4>
-            <p>The only skills I have the patience to learn are those that have no real application in life. </p>
-            <div className="icons"><a href="#"><i className="ion-social-reddit" /></a>
-              <a href="#"> <i className="ion-social-twitter" /></a>
-              <a href="#"> <i className="ion-social-vimeo" /></a>
-            </div>
-          </figcaption>
-        </figure> */}
 
     </div>
         );

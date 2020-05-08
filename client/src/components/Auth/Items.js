@@ -110,20 +110,20 @@ const Items = (props) => {
                         <h2>project name</h2>
                         <input
                         className="inputA" name="name" onChange={props.handleInputChange} type="text" placeholder={item.name} />       
-                        <p>My family is dysfunctional and my parents won't empower me. Consequently I'm not self actualized.</p>
+                        <p>You are able to change it at any time.</p>
                         
                         
                         <h2>place</h2>
                         <input className="inputA" name="place"   onChange={props.handleInputChange} type="text" placeholder={item.place} />
-                        <p>My family is dysfunctional and my parents won't empower me. Consequently I'm not self actualized.</p>
+                        <p>You are able to change it at any time.</p>
                         
                         <h2>Area</h2>
                         <input  className="inputA" name="area" onChange={props.handleInputChange}  type="text" placeholder={item.area} />
-                        <p>My family is dysfunctional and my parents won't empower me. Consequently I'm not self actualized.</p>
+                        <p>You are able to change it at any time.</p>
 
                         <h2>description</h2>
                         <input  className="inputA" name="description"  type="textarea" placeholder={item.description}  onChange={props.handleInputChange} />
-                        <p>My family is dysfunctional and my parents won't empower me. Consequently I'm not self actualized.</p>
+                        <p>You are able to change it at any time.</p>
                         <div className="price">{item.created}</div>
 
                         

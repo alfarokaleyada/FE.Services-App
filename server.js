@@ -11,13 +11,25 @@ const cacheControl = require('cache-control');
 const v1 = require('./routes/v1') // call routes v1 
 // const routes = require("./routes");
 
-
+// Sets up the Express App
+const PORT = process.env.PORT || 3000;
 // Sets up the Express App
 const app = express();
 
-// Sets up the Express App
-const PORT = process.env.PORT || 3000;
 
+// ----------- DB Middlewares --------- //
+app.use(cors())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+
+require('./config/passport')(passport);
+app.use(passport.initialize())
+app.use(passport.session());
 
 
 
@@ -44,7 +56,7 @@ const MONGODB_URI = process.env.MONGODB_URI || databaseToUse;
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(MONGODB_URI);
+// mongoose.connect(MONGODB_URI);
 
 mongoose.connect(process.env.MOMGO_DB_URL,{
     useNewUrlParser: true,
@@ -58,20 +70,6 @@ mongoose.connection.on('error', (err) => {
     console.error("Failed to conect to the database: ${err}");
     });
                   
-
-// ----------- DB Middlewares --------- //
-app.use(cors())
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-
-
-require('./config/passport')(passport);
-app.use(passport.initialize())
-app.use(passport.session());
 
 
 // app.use(routes);
