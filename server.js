@@ -4,7 +4,7 @@ require('dotenv').config();       // to use .env file
 const express = require ("express")    // require express
 const mongoose = require ('mongoose')  // require mongoose
 const logger = require('morgan');
-const bodyParser = require('body-Parser');
+const bodyParser = require('body-parser');
 const passport = require('passport')
 const cors = require ('cors')
 const cacheControl = require('cache-control');
