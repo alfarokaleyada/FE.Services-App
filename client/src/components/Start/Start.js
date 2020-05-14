@@ -3,7 +3,6 @@ import { Redirect, RedirectProps } from 'react-router'
 import {Homen} from "../homen"
 import { Route } from 'react-router-dom';
 
-
 import $ from 'jquery'
 
 import "./start.css";
@@ -30,10 +29,9 @@ class Start extends Component {
         return (
             <div>
                 <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
-                <meta http-equiv="refresh" content="10;/Homen"/>
+                <meta http-equiv="refresh" content="10;/homen"/>
                 <meta name="keywords" content="Farok Eyada, home" />
                 <meta name="description" content="Farok Eyada's personal website" />
-                <link rel="stylesheet" type="text/css" href="style2.css" />
                 <link href="https://fonts.googleapis.com/css?family=Raleway:400" rel="stylesheet" type="text/css" />
                 <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" type="text/css" />
                 <div className="body">
@@ -45,7 +43,7 @@ class Start extends Component {
                     </div>
                 </div>
                 <div className="parent">
-                    <h1 className="right uc">Farok Eayda</h1> 
+                    <h1 className="right uc">Farok Eyada</h1> 
                     <ul className="child hover fade-in">
                     <p className="all25" style={{color: '#50E3C2'}} > “ Reality must be more beautiful, honest and clear than   <span>imagination</span>. ”</p>
                         {/* <li className="all25"><a href="portfolio.html">portfolio</a></li>

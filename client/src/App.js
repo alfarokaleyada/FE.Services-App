@@ -6,9 +6,11 @@ import {About} from "./components/home"
 import {Start} from "./components/start"
 import { NavBar } from './components';
 import Auth from "./components/auth/auth"
-import Projects from "./components/test/test1"
+import Test from "./components/test/test1"
 import { Homen  } from './components';
 import { Footer  } from './components';
+
+
 
 function App() {
   return (
@@ -16,14 +18,12 @@ function App() {
       <Route path='/' component={Start} exact/>
       <Container>
       <NavBar/>
- 
-       <Route path='/Homen' component={Homen} exact />
-
+        <Route path='/homen' component={Homen} exact />
       <Route path='/Registration' component={Registration} exact />
       <Route path='/About' component={About} exact />
       <Route path='/Login' component = {Login} exact />
       <Route path='/Auth' component={Auth} exact / >
-      <Route path='/Projects' component={Projects} exact/>
+      <Route path='/Test' component={Test} exact/>
       <Footer/>
        </Container>
 

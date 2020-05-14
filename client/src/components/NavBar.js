@@ -15,6 +15,8 @@ import {
 } from 'reactstrap';
 
 
+
+
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,7 +41,7 @@ const NavBar = (props) => {
               <NavLink href="/Registration">Registration</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Projects">Projects</NavLink>
+              <NavLink href="/Test">Projects</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/about">About us</NavLink>
